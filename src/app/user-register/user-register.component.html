@@ -1,0 +1,101 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+      <a class="nav-link active" aria-current="page" (click)="tabset('R')">Register</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" (click)="tabset('U')">User Details</a>
+  </li>
+</ul>   
+<section> 
+    <ng-container *ngIf="regTab">
+        <form>
+            <div class="tab-content">
+                <div class="tab-pane active register" id="tabs-1" role="tabpanel">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Sign in</h2>
+                        </div>
+                        <div class="col-12 formfield">
+                            <label for="userName" class="form-label">User Name</label>
+                            <input [(ngModel)]="username" name="username" class="form-control" id="userName"
+                                placeholder="johndoe" required>
+                        </div>
+                        <div class="col-12 formfield">
+                            <label for="userEmail" class="form-label">Email address</label>
+                            <input [(ngModel)]="email" name="email" class="form-control" id="userEmail"
+                                placeholder="useremail@sample.com">
+                        </div><br/>
+
+                        <div class="address">
+                            <h3>Address :</h3>
+                            <label for="city" class="form-label">City</label>
+                            <div class="input-group mb-3">
+                                <input [(ngModel)]="city" name="city" class="form-control" id="city" placeholder="Bangalore"
+                                    aria-describedby="city-name">
+                            </div>
+                            <label for="state" class="form-label">State</label>
+                            <div class="input-group mb-3">
+                                <input [(ngModel)]="state" name="state" class="form-control" id="state"
+                                    aria-describedby="city-name" placeholder="Karnataka">
+                            </div>
+                            <label for="pinCode" class="form-label">Pin Code</label>
+                            <div class="input-group mb-3">
+                                <input [(ngModel)]="pinCode" name="pinCode" type="text" class="form-control" id="pinCode"
+                                    aria-describedby="pin-code" placeholder="123456">
+                            </div>
+                            <div class="col-12 text-end">
+                                <button type="button" class="btn btn-primary" (click)="updateAddress()">Add Address</button>&nbsp;
+                                <button type="button" class="btn btn-danger" (click)="deleteAddress()">Delete Address</button>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-5 text-end">
+                            <button type="button" class="btn btn-success btn-lg float-right" (click)="uesrRegister()">Register</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </ng-container>
+    <ng-container *ngIf="listTab">
+        <div class="tab-pane register">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Registered Users</h2>
+                </div>
+                <div class="col-12 mt-5 table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="5">User Details</th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <!-- <th scope="col">#</th> -->
+                                <th scope="col">User Name</th>
+                                <th scope="col">User Email</th>
+                                <th scope="col">City</th>
+                                <th scope="col">State</th>
+                                <th scope="col">Pin Code</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of users">
+                                <!-- <th scope="row">{{user.id}}</th> -->
+                                <td>{{user.username}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.city}}</td>
+                                <td>{{user.state}}</td>
+                                <td>{{user.pinCode}}</td>
+                                <td> <button class="deleteBtn" (click)=deleteUser(user.id)>x</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>    
+    </ng-container>
+</section>

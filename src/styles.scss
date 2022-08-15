@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+header { 
+    padding-bottom:20px;
+}
+.logo {
+    padding: 8px 10px 0px;
+    margin: 0px;
+}
+
+header img{
+    width: 72px;
+}
+section{
+    padding:20px;
+}
+
+.register{
+    width:90%;
+    padding:30px;
+}
+.tab-pane h2{
+    color:#68655b;
+    font-size: 18px;
+    border-bottom:2px solid #008bfe;
+    padding-bottom:20px;
+}
+
+.register label{
+    color:#68655b;
+    font-size: 14px;
+    padding:20px 0px 0px;
+}
+.address{
+    padding:20px;
+    border:1px dotted #000;
+    margin:40px 0 0 !important;
+    width: 100%;
+}
+.address h3{
+    color:#000;
+    font-size: 16px;
+}
+table a{
+    color:#f82929;
+    text-align: center;
+}
